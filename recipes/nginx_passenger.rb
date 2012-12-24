@@ -1,6 +1,13 @@
 include_recipe "brightbox::ruby"
 
-["passenger-common1.9.1", "nginx-full"].each do |name|
+# Let's remove apache2 to make sure only nginx will be running
+["apache2", "apache2.2-bin"].each do |name|
+  apt_package name do
+    action :remove
+  end
+end
+
+["ssl-cert", "passenger-common1.9.1", "nginx-full"].each do |name|
   apt_package name do
     action :install
   end
