@@ -34,6 +34,7 @@ end
 end
 
 # Regenerate the binstups for rubygems-bundler.
-execute "gem regenerate_binstubs" do
-  action :run
-end
+# Only needed when using RVM
+#execute "gem regenerate_binstubs" do
+#  action :run
+#end
